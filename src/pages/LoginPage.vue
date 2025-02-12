@@ -53,11 +53,17 @@ watch(data, (val) => {
 
 const isUserInputValid = (input:string): boolean => {
     
-    const pattern = new RegExp()
+    const pattern = new RegExp('^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$');
+    return pattern.test(input);
 
 }
 
 const submitHandler = () => {
+    if (!isUserInputValid(data.email)){
+        alert('Email invalide');
+        return;
+    }
+    console.log ('Email valide');
 
 }
 
